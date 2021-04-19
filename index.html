@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es_ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="calculadora.php" method="POST">
+            <input class="pantalla" type="text" name="resultado">
+            <div class="botones">
+                <div class="columna">
+                    <input class="borrar" type="button" value="AC">
+                    <input class="boton" type="button" value="7">
+                    <input class="boton" type="button" value="4">
+                    <input class="boton" type="button" value="1">
+                    <input class="boton" type="button" value="0">
+                </div>
+    
+                <div class="columna">
+                    <input class="boton" type="button" value="%">
+                    <input class="boton" type="button" value="8">
+                    <input class="boton" type="button" value="5">
+                    <input class="boton" type="button" value="2">
+                    <input class="boton" type="button" value=",">
+                </div>
+
+                <div class="columna">
+                    <input class="boton" type="button" value="X">
+                    <input class="boton" type="button" value="9">
+                    <input class="boton" type="button" value="6">
+                    <input class="boton" type="button" value="3">
+                    <input class="boton" type="button" value="±">
+                </div>
+
+                <div class="columna">
+                    <input class="boton" type="button" value="/">
+                    <input class="boton" type="button" value="-">
+                    <input class="boton" type="button" value="+">
+                    <input class="boton doble" type="button" value="=">
+                </div>
+
+                
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
