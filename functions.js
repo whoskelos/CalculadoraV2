@@ -7,8 +7,31 @@ var semaforo = true;
 
 
 function mostrar_boton(boton) {
-    document.getElementById("pantalla").value += boton.value;
+    /**
+     * el primer if comprueba que si hay un 0 ya en pantalla
+     * no se repitan mas ceros
+     */
+    var texto = document.getElementById("pantalla").value;
+    if (boton.value == "0") {
+        
+        if (texto[0] != "0") {
+            document.getElementById("pantalla").value += boton.value;
+        }
+        else if (texto.indexOf("0")<0) {
+            document.getElementById("pantalla").value += boton.value;         
+        }else if (texto.includes(".")){
+            document.getElementById("pantalla").value += boton.value; 
+        }
+    }else if (texto[0] == "0" && boton.value !="0" && boton.value != "." && texto.length == 1) {
+        borrar_calcu();
+        document.getElementById("pantalla").value += boton.value; 
+        
+    }else{
+        document.getElementById("pantalla").value += boton.value;
+    }
+    
     decimal();
+
     if (semaforo) {
         num1 = document.getElementById("pantalla").value;
     }else{
@@ -43,13 +66,14 @@ function coger_operador(oper) {
     semaforo = false;
 }
 
-function noRepetirCeros() {
-    var pantalla = document.getElementById("pantalla").value;
-    if (pantalla == "0" && pantalla.value.lenght < 0) {
-        console.log("hola");
-        document.getElementById("pantalla").value;
-    }
-}
+// function noRepetirCeros() {
+//     var pantalla = document.getElementById("pantalla").value;
+//     if (pantalla == "0") {
+//         if (pantalla.indexOf("0")<0) {
+//             document.getElementById("pantalla").value+=0;
+//         }
+//     }
+// }
 
 function borrar_calcu() {
     document.getElementById("pantalla").value = "";
@@ -59,6 +83,7 @@ function borrar_calcu() {
 //que al empezar a escribir de nuevo
 //guarde los numeros de nuevo en la varibale num1
 function limpiar_varibles() {
+    document.getElementById("pantalla").value = "";
     num1 = "0";
     num2 = "0";
     semaforo = true;
@@ -93,17 +118,6 @@ function mostrar_resultado() {
     
         default:
             document.getElementById("pantalla").value = "ERROR";
-            break;
+            break; 
     }
 }
-
-// function noRepetirPunto(valor) {
-//     if (valor == '.') {
-//         var texto = document.getElementById("pantalla").value;
-//         if (texto.indexOf('.')<0) {
-//             document.getElementById("pantalla").value +=valor;
-//         }else{
-//             document.getElementById("pantalla").value += valor;
-//         }
-//     }
-// }
