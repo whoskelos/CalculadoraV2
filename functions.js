@@ -5,6 +5,7 @@ var num2 = "";
 var resultado = "";
 var semaforo = true;
 
+
 function mostrar_boton(boton) {
     document.getElementById("pantalla").value += boton.value;
     decimal();
@@ -19,15 +20,18 @@ function mostrar_boton(boton) {
 }
 
 /*
-Funcion para solo escribir una coma una vez pulsada hasta que se almacenen en la varible num
+Funcion para solo escribir una coma, una vez pulsada se desactiva la coma, hasta que pulses un
+operador y un numero.
 */
 
 function decimal() {
     var texto = document.getElementById("pantalla").value;
-    if (texto.indexOf == (".") && texto.lenght < 2) {
-        document.getElementById("pantalla").value = "0"+document.getElementById("display").value ;
+    var puntoDecimal = document.querySelector("#decimal");
+    if (texto.includes(".")) {
+        puntoDecimal.disabled = true;
     }else{
         document.getElementById("pantalla").value;
+        puntoDecimal.disabled = false;
     }
 }
 
