@@ -11,10 +11,8 @@ function mostrar_boton(boton) {
     decimal();
     if (semaforo) {
         num1 = document.getElementById("pantalla").value;
-        console.log(num1);
     }else{
         num2 = document.getElementById("pantalla").value;
-        console.log(num2);
     }
     
 }
@@ -43,7 +41,14 @@ function coger_operador(oper) {
     borrar_calcu();
     operador = oper.value
     semaforo = false;
-    console.log("operador:",operador);
+}
+
+function noRepetirCeros() {
+    var pantalla = document.getElementById("pantalla").value;
+    if (pantalla == "0" && pantalla.value.lenght < 0) {
+        console.log("hola");
+        document.getElementById("pantalla").value;
+    }
 }
 
 function borrar_calcu() {
@@ -65,32 +70,29 @@ function mostrar_resultado() {
         resultado = parseFloat(num1) + parseFloat(num2);
         document.getElementById("pantalla").value = resultado;
         num1= resultado.toString();
-        limpiar_varibles();
-        console.log(resultado);
+        // limpiar_varibles();
             break;
         case "-": 
         resultado = parseFloat(num1) - parseFloat(num2);
         document.getElementById("pantalla").value = resultado;
         num1= resultado.toString();
-        limpiar_varibles();
-        console.log(resultado);
+        // limpiar_varibles();
             break;
         case "x": 
         resultado = parseFloat(num1) * parseFloat(num2);
         document.getElementById("pantalla").value = resultado;
         num1= resultado.toString();
-        limpiar_varibles();
-        console.log(resultado);
+        // limpiar_varibles();
             break;
         case "/": 
         resultado = parseFloat(num1) / parseFloat(num2);
         document.getElementById("pantalla").value = resultado;
         num1= resultado.toString();
-        limpiar_varibles();
-        console.log(resultado);
+        // limpiar_varibles();
             break;
     
         default:
+            document.getElementById("pantalla").value = "ERROR";
             break;
     }
 }
